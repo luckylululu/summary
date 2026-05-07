@@ -18,10 +18,12 @@
 
 - `bcma_combination_designs.csv`: the 20 requested combination-mutation forms plus validation, rationale, and blank columns reserved for SWISS-MODEL/PISA outputs.
 - `bcma_mutant_sequences.fasta`: chain A amino-acid sequences for the same 20 mutants.
+- `bcma_design_run.log`: generation log for the CSV/FASTA result files, stored in this `summary` folder together with the results.
+- `bcma_validation.log`: validation log confirming the generated result files exist in this `summary` folder and the 20 designs pass the requested mutation-count constraints.
 
 ## Online SWISS-MODEL and EMBL-PISA status
 
-The online modeling/evaluation fields are intentionally marked as pending in `bcma_combination_designs.csv` because this execution environment cannot complete custom-template uploads through the interactive SWISS-MODEL and EMBL-PISA web sessions on the user's behalf.  The generated FASTA and design table are ready for those online runs.
+The online modeling/evaluation fields are intentionally marked as pending in `bcma_combination_designs.csv` because this execution environment cannot complete custom-template uploads through the interactive SWISS-MODEL and EMBL-PISA web sessions on the user's behalf.  The generated FASTA, design table, and log files are stored directly in the `summary` folder and are ready for those online runs.
 
 Recommended manual/online sequence for each design:
 

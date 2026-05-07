@@ -19,6 +19,7 @@ from pathlib import Path
 PDB = Path("relaxed_teclistamab_bcma.pdb")
 OUT_CSV = Path("bcma_combination_designs.csv")
 OUT_FASTA = Path("bcma_mutant_sequences.fasta")
+OUT_LOG = Path("bcma_design_run.log")
 
 AA3_TO_1 = {
     "ALA": "A", "ARG": "R", "ASN": "N", "ASP": "D", "CYS": "C",
@@ -133,6 +134,15 @@ def main() -> None:
     wt_seq = chain_a_sequence()
     rows = []
     fasta_entries = []
+    log_lines = [
+        "BCMA scFv combination-design generation log",
+        f"working_directory={Path.cwd()}",
+        f"template_pdb={PDB}",
+        f"chain_a_length={len(wt_seq)}",
+        "heavy_region=chain A residues 1-121",
+        "light_region=chain A residues 137-244",
+        "candidate_mutation_count=17",
+    ]
     for design_id, heavy, light in DESIGNS:
         ok, message = validate_design(heavy, light)
         if not ok:
@@ -156,12 +166,26 @@ def main() -> None:
             "delta_iG_kcal_per_mol": "",
         })
         fasta_entries.append(f">{design_id} {'/'.join(all_muts)}\n{sequence}\n")
+        log_lines.append(
+            f"{design_id}: heavy={len(heavy)} light={len(light)} "
+            f"constraint={message} near_adjacent={adjacent_notes(all_muts)}"
+        )
 
     with OUT_CSV.open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
     OUT_FASTA.write_text("".join(fasta_entries))
+    log_lines.extend([
+        f"design_rows_written={len(rows)}",
+        f"csv_output={OUT_CSV}",
+        f"fasta_output={OUT_FASTA}",
+        "swiss_model_status=pending_external_online_run_custom_template_upload",
+        "pisa_status=pending_external_online_run_after_model_download",
+        "interface_area_A2=blank_until_online_pisa_completion",
+        "delta_iG_kcal_per_mol=blank_until_online_pisa_completion",
+    ])
+    OUT_LOG.write_text("\n".join(log_lines) + "\n")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,3 @@
+validation_status=pass
+design_count=20
+files_in_summary=bcma_combination_designs.csv,bcma_mutant_sequences.fasta,bcma_design_run.log
