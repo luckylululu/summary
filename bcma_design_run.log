@@ -1,0 +1,34 @@
+BCMA scFv combination-design generation log
+working_directory=/workspace/summary
+template_pdb=relaxed_teclistamab_bcma.pdb
+chain_a_length=244
+heavy_region=chain A residues 1-121
+light_region=chain A residues 137-244
+candidate_mutation_count=17
+BCMA-C01: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C02: heavy=6 light=5 constraint=passes user constraints near_adjacent=102-104
+BCMA-C03: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C04: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C05: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C06: heavy=6 light=5 constraint=passes user constraints near_adjacent=102-104
+BCMA-C07: heavy=6 light=5 constraint=passes user constraints near_adjacent=102-104
+BCMA-C08: heavy=6 light=5 constraint=passes user constraints near_adjacent=102-104
+BCMA-C09: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C10: heavy=6 light=5 constraint=passes user constraints near_adjacent=102-104
+BCMA-C11: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C12: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C13: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C14: heavy=6 light=5 constraint=passes user constraints near_adjacent=102-104
+BCMA-C15: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C16: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C17: heavy=6 light=5 constraint=passes user constraints near_adjacent=none
+BCMA-C18: heavy=6 light=5 constraint=passes user constraints near_adjacent=102-104
+BCMA-C19: heavy=6 light=5 constraint=passes user constraints near_adjacent=102-104
+BCMA-C20: heavy=6 light=5 constraint=passes user constraints near_adjacent=102-104
+design_rows_written=20
+csv_output=bcma_combination_designs.csv
+fasta_output=bcma_mutant_sequences.fasta
+swiss_model_status=pending_external_online_run_custom_template_upload
+pisa_status=pending_external_online_run_after_model_download
+interface_area_A2=blank_until_online_pisa_completion
+delta_iG_kcal_per_mol=blank_until_online_pisa_completion
